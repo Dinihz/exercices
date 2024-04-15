@@ -33,5 +33,11 @@
     "*.e2e-spec.ts": "ts-test",
     "vitest.config.e2e.ts": "vite",
     ".env.example": "gear"
-  }
+  },
+  "editor.colorDecorators": false,
+  "workbench.statusBar.visible": false,
+  "color-highlight.markerType": "dot-before",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 250,
+  "editor.minimap.enabled": false
 }
