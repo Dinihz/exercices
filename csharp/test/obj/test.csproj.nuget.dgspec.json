@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\diniz\\OneDrive\\Área de Trabalho\\Lucas\\exercices\\csharp\\test\\test.csproj": {}
+    "C:\\Users\\diniz\\OneDrive\\Documentos\\GitHub\\exercices\\csharp\\test\\test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\diniz\\OneDrive\\Área de Trabalho\\Lucas\\exercices\\csharp\\test\\test.csproj": {
+    "C:\\Users\\diniz\\OneDrive\\Documentos\\GitHub\\exercices\\csharp\\test\\test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diniz\\OneDrive\\Área de Trabalho\\Lucas\\exercices\\csharp\\test\\test.csproj",
+        "projectUniqueName": "C:\\Users\\diniz\\OneDrive\\Documentos\\GitHub\\exercices\\csharp\\test\\test.csproj",
         "projectName": "test",
-        "projectPath": "C:\\Users\\diniz\\OneDrive\\Área de Trabalho\\Lucas\\exercices\\csharp\\test\\test.csproj",
+        "projectPath": "C:\\Users\\diniz\\OneDrive\\Documentos\\GitHub\\exercices\\csharp\\test\\test.csproj",
         "packagesPath": "C:\\Users\\diniz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diniz\\OneDrive\\Área de Trabalho\\Lucas\\exercices\\csharp\\test\\obj\\",
+        "outputPath": "C:\\Users\\diniz\\OneDrive\\Documentos\\GitHub\\exercices\\csharp\\test\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\diniz\\AppData\\Roaming\\NuGet\\NuGet.Config"
