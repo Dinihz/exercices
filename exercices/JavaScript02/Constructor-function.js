@@ -69,7 +69,7 @@ function Dom(selector) {
   this.removeCLass = function (classe) {
     elementList.forEach((element) => {
       element.classList.remove(classe);
-    });
+    });S
   };
 }
 
