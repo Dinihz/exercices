@@ -11,3 +11,6 @@ if (altura && peso) {
     document.getElementById('resultado').textContent = "Por favor, insira valores válidos."
   }
 
+
+//Usar como aprendizagem.
+
