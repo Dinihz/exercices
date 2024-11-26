@@ -1,36 +1,35 @@
-// Retorne a soma total de caracteres dos
-// parágrafos acima utilizando reduce
+// Crie uma função que verifique
+// corretamente o tipo de dado
 
-const paragrafos = document.querySelectorAll('p');
-
-const totalCaracteres = Array.prototype.reduce.call(acamulador, (item) => {
-  return acumulador + item.innerText.length;
-}, 0);
-
-console.log(totalCaracteres);
-
-
-// Crie uma função que retorne novos elementos
-// html, com os seguintes parâmetros
-// tag, classe e conteudo.
-
-function criarElemento(tag, classe, conteudo) {
-  const elemento = document.createElement(tag);
-  classe ? elemento.classList.add(classe) : null;
-  conteudo ? elemento.innerText = conteudo : null;
-  return elemento;
+function verificarDado(dado) {
+  return Object.prototype.toString.call(dado);
 }
 
-console.log(criarElemento('li', 'azul', 'esse e um conteudo'));
+console.log(verificarDado("String"));
+// Crie um objeto quadrado com
+// a propriedade lados e torne
+// ela imutável
 
-// Crie uma nova função utilizando a anterior como base
-// essa nova função deverá sempre criar h1 com a
-// classe titulo. Porém o parâmetro conteudo continuará dinâmico
+const quadrado = {};
+Object.defineProperty(quadrado, {
+  value: 4,
+  enumerable: true,
+})
 
-const h1Titulo =  criarElemento.bind(null, 'h1', 'titulo');
+// Previna qualquer mudança
+// no objeto abaixo
+const configuracao = {
+  width: 800,
+  height: 600,
+  background: '#333'
+}
 
-const cursosJS = h1Titulo('Cursos JS');
+Object.freeze(configuracao);
 
-const cursosReact = h1Titulo('Cursos React');
+// Liste o nome de todas
+// as propriedades do
+// protótipo de String e Array
 
-console.log(cursosJS, cursosReact);
+console.log(Object.getOwnPropertyNames(String.prototype));
+console.log(Object.getOwnPropertyNames(Array.prototype));
+
