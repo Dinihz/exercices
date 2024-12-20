@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Carrega o React, React Dom e Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+
+    const Button = () => {
+      return <button>Buy</button>;
+    }
+
+    const MainNav = () => {
+      return <nav>
+        <ul>
+          <li><a href="#">Link1</a>
+            <a href="#">Link1</a>
+          </li>
+        </ul>
+      </nav>
+    }
+
+    const Products = () => {
+
+      const product1 = "Tshirt";
+      const product2 = "Shirt";
+
+      function handleClick(event) {
+        console.log('Buy: ' + event.target.innerText);
+      }
+
+      return <div>
+        <button onClick={handleClick}>{product1} - R$ {Math.random() * 100}</button>
+        <button onClick={handleClick}>{product2} - R$ {Math.random() * 100}</button>
+      </div>
+    }
+
+    const Buys = () => {
+      const [count, setCount] = React.useState(5);
+
+      function handleClick() {
+        setCount(count + 1);
+      }
+
+      return <div>
+        <button onClick={handleClick}>Buy: {count}</button>
+        <p>Total: {count}</p>
+        <p>Price: {count * 250}</p>
+      </div>
+    }
+
+
+    const App = () => {
+      return <div>
+        <MainNav />
+        <Products />
+        <Button />
+        <Buys />
+      </div>;
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root')
+    )
+  </script>
+</body>
+
+</html>
