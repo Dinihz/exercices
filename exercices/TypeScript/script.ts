@@ -32,11 +32,79 @@ const newProduct = priceTransformer(ps5);
 
 console.log(newProduct);
 
+//string
 
-//exercico 1:
+const me: string = "Diniz";
 
-function normalizarTexto(texto: string): string {
-  return texto.trim().toLowerCase();
+//number
+
+let age: number = 19;
+
+//boolean
+
+const condition: boolean = true;
+
+//typeof
+
+//typeof é um operador de JavaScript que retorna uma string indicando o tipo do dado.
+
+const frase = "Front End";
+const preco = 500;
+const condi = preco > 100;
+
+if (typeof frase === "string") {
+  console.log("frase é string");
+}
+if (typeof preco === "number") {
+  console.log("preco é number");
+}
+if (typeof condi === "boolean") {
+  console.log("condi é boolean");
 }
 
+//Não confundir string, number e boolean com String, Number e Boolean. Os últimos são as funções construtoras desses tipos de dados, responsáveis pela herança das propriedades e métodos dos mesmos.
 
+const frase1 = new String("Front End");
+const frase2 = String("Front End");
+const frase3 = "Front End";
+
+console.log(typeof frase1);
+console.log(typeof frase2);
+console.log(typeof frase3);
+
+//Union Types
+
+//É comum termos funções que podem retornar ou receber tipos diferentes. Para isso usamos a barra vertical string | number | boolean.
+
+let all: string | number = 200;
+all = "300";
+
+function isNumber(value: string | number) {
+  if (typeof value === "number") {
+    return true;
+  } else {
+    return "Não é número";
+  }
+}
+
+// Retorna HTMLButtonElement | null
+const button = document.querySelector("button");
+// Optional chaining
+// Executa click() se button for diferente de null/undefined
+button?.click();
+
+//exercico 3
+// 1 - Crie uma função chamada toNumber
+// 2 - A função pode receber number | string
+// 3 - Se a função receber um número, retorne um número
+// 4 - Se a função receber uma string, retorne um número
+// 5 - Se ela receber algo diferente, retorne um erro. (throw "value deve ser um número ou uma string")
+
+function toNumber(value: number | string) {
+  if (typeof value === "number") {
+    return value;
+  } else if (typeof value === "string") {
+    return Number(value);
+  }
+  throw "value deve ser um número ou uma string";
+}
