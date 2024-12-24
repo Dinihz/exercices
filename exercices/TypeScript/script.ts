@@ -170,3 +170,27 @@ interface Pessoa {
   idade: number;
   maiorDeIdade: boolean;
 }
+
+//Arrays
+
+const numbers = [10, 40, 50, 5, 100];
+
+function maior(data: number[]) {
+  data.filter((n) => n >= 10);
+}
+
+//filtrar valores
+
+const valores = [10, 30, "Home", 60, "name"];
+
+function isNumbers(data: (number | string)[]) {
+  return data.filter((item) => typeof item === "number");
+}
+
+// Outra Sinxtaxe
+
+const otherNumbers = [10, 30, 250, 60, 360];
+
+function more(data: Array<number>) {
+  return data.filter((n) => n > 10);
+}
