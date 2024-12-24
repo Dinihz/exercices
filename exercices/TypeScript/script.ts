@@ -194,3 +194,59 @@ const otherNumbers = [10, 30, 250, 60, 360];
 function more(data: Array<number>) {
   return data.filter((n) => n > 10);
 }
+
+// Any
+
+//O any indica que o dado pode conter qualquer tipo de dado do TypeScript.
+
+//O any faz sentido  no caso da função json() onde qualquer tipo de dado pode ser retornado, dependendo da API que acessarmos.
+
+async function fetchJSON(url: string) {
+  const response = await fetch(url);
+  const data = await response.json();
+}
+
+fetchJSON("https://www.openstreetmap.org/export#map=7/-19.684/-42.836");
+
+//Tome cuidado pois o any pode quebrar o seu código.
+
+//Null e Undefined
+
+//Null
+
+//null é um tipo primitivo que representa a ausência de valor. É comum em funções do DOM que fazem uma busca, retornarem null quando não são bem sucedidas.
+
+const button05 = document.querySelector("button");
+const configs = localStorage.getItem("config");
+
+if (button !== null) {
+  button.click();
+}
+if (button) {
+  button.click();
+}
+if (button) button.click();
+button?.click();
+
+// undefined
+
+//undefined representa variáveis/propriedades que foram instanciadas, porém, os seus valores ainda não foram definidos.
+
+let total05;
+console.log(total); // undefined
+
+//Propriedades Opcionais
+
+//Utilizando opcional?: string. Quando opcional, elas poderão sempre retornar como o valor definido ou undefined.
+
+interface Products1 {
+  nome05?: string;
+}
+
+const libre: Products1 = {};
+const games: Products1 = {
+  nome05: "Ragnarok",
+};
+
+games.nome05?.toLowerCase();
+libre.nome05?.toLowerCase();
