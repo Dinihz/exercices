@@ -271,6 +271,7 @@ const livro = new Produto("Prime", 65);
 //instanceof
 
 //podemos verificar se um objeto é uma instância (foi construído ou herda) de uma função construtora (class).
+//instanceof podemos verificar se um objeto é uma instância (foi construído ou herda) de uma função construtora (class).
 
 class Livro {
   autor: string;
@@ -301,3 +302,21 @@ const produto = buscarProduto("O Hobbit");
 if (produto instanceof Livro) {
   produto.autor;
 }
+
+//O instanceof é um operador que existe no JavaScript. Se você definir a interface de um objeto apenas com o interface e não possuir uma classe construtora do mesmo, não será possível utilizar o instanceof na interface.
+
+//Interfaces do DOM
+
+//querySelector:  objeto retornado dependerá dadocument.querySelector('video'); // HTMLVideoElement
+//document.querySelector('img'); // HTMLImageElement
+
+//const link1 = document.querySelector('a'); // HTMLAnchorElement
+//const link2 = document.querySelector('#origamid'); // Element
+
+//link1?.href;,
+//link2?.href; // erro no ts
+// string que passarmos no método.
+
+//O querySelectorAll retorna uma NodeList de elementos.
+
+//
