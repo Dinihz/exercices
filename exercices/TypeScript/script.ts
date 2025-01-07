@@ -303,20 +303,17 @@ if (produto instanceof Livro) {
   produto.autor;
 }
 
-//O instanceof é um operador que existe no JavaScript. Se você definir a interface de um objeto apenas com o interface e não possuir uma classe construtora do mesmo, não será possível utilizar o instanceof na interface.
+//Functions
 
-//Interfaces do DOM
+// Crie uma função que arredonda um valor passado para cima.
+// A função pode receber string ou number.
+// A função deve retornar o mesmo tipo que ela receber.
 
-//querySelector:  objeto retornado dependerá dadocument.querySelector('video'); // HTMLVideoElement
-//document.querySelector('img'); // HTMLImageElement
-
-//const link1 = document.querySelector('a'); // HTMLAnchorElement
-//const link2 = document.querySelector('#origamid'); // Element
-
-//link1?.href;,
-//link2?.href; // erro no ts
-// string que passarmos no método.
-
-//O querySelectorAll retorna uma NodeList de elementos.
-
-//
+function round(value: number | string) {
+  if (typeof value === "number") {
+    return Math.ceil(value);
+  } else if (typeof value === "string") {
+    const num = Math.ceil(Number(value));
+    return num.toString();
+  }
+}
