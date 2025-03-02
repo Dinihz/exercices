@@ -7,22 +7,34 @@ function calcSpeed() {
   const speed = Number(inSpeed.value);
   const driver = Number(inDriver.value);
 
-  if (!speed || !driver || isNaN(speed) || isNaN(driver)) {
-    alert("Please, enter valid numbers");
-    inSpeed.focus();
-    inDriver.focus();
+  let errorMessage = "";
+
+  if (inSpeed.value.trim() === "" || isNaN(speed)) {
+    errorMessage += "Please, enter a valid speed. ";
+  }
+
+  if (inDriver.value.trim() === "" || isNaN(driver)) {
+    errorMessage += "Please, enter a valid driver speed.";
+  }
+
+  if (errorMessage) {
+    alert(errorMessage);
+    if (inSpeed.value.trim() === "" || isNaN(speed)) {
+      inSpeed.focus();
+    } else {
+      inDriver.focus();
+    }
     return;
   }
 
-  const fine = speed * 0.2;
-  const calc = speed + fine;
+  const speedLimit20 = speed * 1.2;
 
   if (driver <= speed) {
     outSituation.textContent = `Sem Multa`;
-  } else if (driver <= calc) {
+  } else if (driver <= speedLimit20) {
     outSituation.textContent = `Multa Leve`;
   } else {
-    outSituation.textContent = `Multa grave`;
+    outSituation.textContent = `Multa Grave`;
   }
 }
 
