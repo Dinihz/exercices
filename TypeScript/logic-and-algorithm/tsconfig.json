@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",                     // Usa ES6 como versão de JS
+    "module": "esnext",                  // Usa módulos modernos
+    "rootDir": ".",                      // Diretório raiz do código TS
+    "outDir": ".",                       // Salva os .js na mesma estrutura das pastas
+    "strict": true,                      // Ativa verificações rígidas (ótimo pra aprender)
+    "esModuleInterop": true,            // Para importar pacotes de forma compatível
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "allowJs": false,
+    "sourceMap": true                    // Gera arquivos .map (opcional, bom pra debug)
+  },
+  "include": [
+    "cap*/**/*.ts"                      // Inclui todos os .ts dentro de cap1/, cap2/, etc
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+
