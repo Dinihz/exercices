@@ -4,9 +4,9 @@ family.push("Patricia Diniz"); // Push adiciona
 
 family.unshift("Nathan Diniz"); // Unshift adiciona na frente dos outros
 
-family.shift(); // ele apaga o primeiro (nathan)
+// family.shift(); // ele apaga o primeiro (nathan)
 
-family.pop(); // ele apaga o ultimo (patricia)
+// family.pop(); // ele apaga o ultimo (patricia)
 
 console.log(family);
 
@@ -27,3 +27,9 @@ console.log(numberSliceTest);
 console.log(numbersRemove);
 
 console.log(numbersSplice); // remover apartir do 2 e 1.
+
+// forEach
+
+family.forEach(function (nome, i) {
+  console.log(`${i + 1}: ${nome}`);
+});
