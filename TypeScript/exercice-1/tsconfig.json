@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "outDir": "./dist",
-    "target": "ESNext",
-    "strict": true
-  }
-}
