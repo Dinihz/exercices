@@ -1,35 +1,33 @@
-const frm = document.querySelector("form") as HTMLFormElement;
-const inputFarm = document.querySelector("#inMedicine") as HTMLInputElement;
-const inputPrice = document.querySelector("#inPrice") as HTMLInputElement;
-const outMedicine = document.querySelector("#outMedicine") as HTMLHeadingElement;
-const outPrice = document.querySelector("#outPrice") as HTMLHeadingElement;
+const form = document.querySelector("form") as HTMLFormElement
+const inMedicine = document.querySelector("#inMedicine") as HTMLInputElement
+const inPrice = document.querySelector("#inPrice") as HTMLInputElement
+const outMedicine = document.querySelector("#outMedicine") as HTMLHeadingElement
+const outPrice = document.querySelector("#outPrice") as HTMLHeadingElement
 
-function calculateMedicinePrice(price: number): { pay: number } {
+function calculateDiscount(price: number): { pay: number } {
   return {
-    pay: (price * 2) * 0.80,
+    pay: (price * 2) * 0.90
   }
 }
 
-function isValidInput(price: number,): boolean {
+function isValidInput(price: number): boolean {
   return !isNaN(price) && price > 0
 }
 
-frm.addEventListener("submit", (event: Event) => {
-  event.preventDefault();
+form.addEventListener("submit", (event: Event) => {
+  event.preventDefault()
 
-  const medicine = inputFarm.value
-  const price = Number(inputPrice.value)
+  const medicine = inMedicine.value
+  const price = Number(inPrice.value)
 
   if (!isValidInput(price)) {
-    alert("Please, enter a valid price above zero.")
-    inputPrice.focus();
+    alert("Please enter a valid number")
+    inPrice.focus()
     return
   }
 
-  const { pay } = calculateMedicinePrice(price)
+  const { pay } = calculateDiscount(price)
 
-  outMedicine.textContent = `Promotion of ${medicine}`
-  outPrice.textContent = `Two for R$ ${pay.toFixed(2)}`
+  outMedicine.textContent = `Medicine: ${medicine}`
+  outPrice.textContent = `2 of ${medicine} is ${pay}`
 })
-
-
