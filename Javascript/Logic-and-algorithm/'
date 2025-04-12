@@ -1,0 +1,35 @@
+const inputNumber = document.getElementById("inNumber");
+const btBet = document.getElementById("btBet");
+const outError = document.getElementById("outError");
+const outChances = document.getElementById("outChances");
+const outTip = document.getElementById("outTip");
+
+const numberArray = [];
+
+const theNumber = Math.floor(Math.random() * 100) + 1;
+
+numberArray.push(theNumber);
+
+console.log(numberArray);
+
+function findNumber() {
+  const usrNumber = Number(inputNumber.value);
+
+  if ((isNaN(usrNumber), usrNumber < 0)) {
+    alert("Enter a number between 1 and 100");
+    inputNumber.focus();
+    return;
+  }
+
+  if (numberArray.indexOf(theNumber) === true) {
+    alert("You did it!");
+  } else {
+    outError.textContent = `Erro: ${btBet + 1}`;
+  }
+}
+
+outError.textContent = `Erro: ${btBet + 1}`;
+
+outTip.textContent = `Tip: A number from 1 to 100`;
+
+btBet.addEventListener("click", findNumber);
