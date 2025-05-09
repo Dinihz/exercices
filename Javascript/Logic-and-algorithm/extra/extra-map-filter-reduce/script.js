@@ -48,6 +48,17 @@ for (const adults of isAdults) {
 
 //reduce: usado para obter valores acumulativos
 
+const ages = [
+  { name: "Frederico", age: 16 },
+  { name: "Nadia", age: 19 },
+  { name: "Pietro", age: 72 },
+  { name: "yudi", age: 10 },
+];
+
+const sum = ages.reduce((accumulator, age) => accumulator + age.age, 0);
+
+console.log(`sum: ${sum}`);
+
 const numeros = [10, 15, 20, 25];
 
 const soma = numeros.reduce((acumulador, num) => acumulador + num, 0);
