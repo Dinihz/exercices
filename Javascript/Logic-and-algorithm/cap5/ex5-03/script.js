@@ -34,3 +34,36 @@ frm.btList.addEventListener("click", () => {
   );
   resp.innerText = `List of the cadastred cars\n${"-".repeat(40)}\n${list}`;
 });
+
+frm.btFilter.addEventListener("click", () => {
+  const max = Number(prompt("What max value the client must pay?"));
+
+  if (max == 0 || isNaN(max)) {
+    return;
+  }
+
+  const carsFilter = cars.filter((car) => car.price <= max);
+
+  if (carsFilter.length == 0) {
+    alert("Dont have a any price less then or equal to that requested");
+    return;
+  }
+
+  let list = "";
+  for (const car of carsFilter) {
+    list += `${car.model} - R$: ${car.price.toFixed(2)}\n`;
+  }
+  resp.innerHTML = `Cars even R$: ${max.toFixed(2)}\n${"-".repeat(40)}\n${list}`;
+});
+
+frm.btPromol.addEventListener("click", () => {
+  const discount = Number(prompt("What percentage discount: "));
+  if (discount == 0 || isNaN(discount)) {
+    return;
+  }
+  let list = "";
+  for (const car of carsDesc) {
+    list += `${car.model} - R$: ${discount}%\n${"-".repeat(40)}\n${list}`;
+  }
+  resp.innerHTML = `Cars with discount: ${discount}%\n${list}`;
+});
