@@ -2,10 +2,10 @@ const frm = document.querySelector("form");
 const inModel = document.querySelector("#inModel");
 const inPrice = document.querySelector("#inPrice");
 const btAdd = document.querySelector("#btAdd");
-const btList = document.querySelector("btList");
+const btList = document.querySelector("#btList");
 const btFilter = document.querySelector("#btFilter");
 const tPromo = document.querySelector("#btPromo");
-const resp = document.querySelector("#pre");
+const resp = document.querySelector("pre");
 const cars = [];
 
 frm.addEventListener("submit", (e) => {
@@ -18,7 +18,7 @@ frm.addEventListener("submit", (e) => {
   frm.inPrice.value = "";
   inModel.focus();
 
-  frm.btList.dispatchEvent(new Event("click"));
+  btList.dispatchEvent(new Event("click"));
 });
 
 frm.btList.addEventListener("click", () => {
@@ -29,9 +29,10 @@ frm.btList.addEventListener("click", () => {
 
   const list = cars.reduce(
     (acumulated, car) =>
-      acumulated + car.model + " - R$: " + car.price.toFixed(2) + "/n",
+      acumulated + car.model + " - R$: " + car.price.toFixed(2) + "\n",
     "",
   );
+
   resp.innerText = `List of the cadastred cars\n${"-".repeat(40)}\n${list}`;
 });
 
@@ -56,14 +57,21 @@ frm.btFilter.addEventListener("click", () => {
   resp.innerHTML = `Cars even R$: ${max.toFixed(2)}\n${"-".repeat(40)}\n${list}`;
 });
 
-frm.btPromol.addEventListener("click", () => {
+frm.btPromo.addEventListener("click", () => {
   const discount = Number(prompt("What percentage discount: "));
   if (discount == 0 || isNaN(discount)) {
     return;
   }
+
+  const carsDesc = cars.map((car) => ({
+    model: car.model,
+    price: car.price * (1 - discount / 100),
+  }));
+
   let list = "";
   for (const car of carsDesc) {
-    list += `${car.model} - R$: ${discount}%\n${"-".repeat(40)}\n${list}`;
+    list += `${car.model} - R$: ${car.price.toFixed(2)}\n`;
   }
-  resp.innerHTML = `Cars with discount: ${discount}%\n${list}`;
+
+  resp.innerHTML = `Cars with discount: ${discount}%\n${"-".repeat(40)}\n${list}`;
 });
