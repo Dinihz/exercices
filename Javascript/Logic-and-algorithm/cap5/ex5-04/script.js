@@ -5,17 +5,31 @@ const inputAge = document.querySelector("#inAge");
 const btList = document.querySelector("#btList");
 const btFilter = document.querySelector("#btFilter");
 
-const child = [];
+const children = [];
 
 frm.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = inputName.value;
   const age = Number(inputAge.value);
 
-  child.push({ name, age });
+  children.push({ name, age });
   inputName.value = "";
   inputAge.value = "";
   inputName.focus();
 
   btList.dispatchEvent(new Event("click"));
+});
+
+btList.addEventListener("click", () => {
+  if (children.length === 0) {
+    alert("Dont have children listed");
+    return;
+  }
+
+  let list = "";
+  children.forEach((c) => {
+    list += `${c.name} - ${c.age} years\n`;
+  });
+
+  answer.innerText = list;
 });
