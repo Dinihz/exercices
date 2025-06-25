@@ -27,9 +27,9 @@ btList.addEventListener("click", () => {
   }
 
   let list = "";
-  children.forEach((c) => {
-    list += `${c.name} - ${c.age} years\n`;
-  });
-
+  for (const child of children) {
+    const { name, age } = child;
+    list += name + " - " + age + " old\n";
+  }
   answer.innerText = list;
 });
