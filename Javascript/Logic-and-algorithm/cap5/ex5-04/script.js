@@ -33,3 +33,15 @@ btList.addEventListener("click", () => {
   }
   answer.innerText = list;
 });
+
+btFilter.addEventListener("click", () => {
+  if (children.length === 0) {
+    alert("Dont have children listed");
+    return;
+  }
+
+  const copy = [...children];
+  copy.sort((a, b) => a.age - b.age);
+  let resum = 0;
+  let aux = copy[0].age;
+});
