@@ -44,4 +44,12 @@ btFilter.addEventListener("click", () => {
   copy.sort((a, b) => a.age - b.age);
   let resum = 0;
   let aux = copy[0].age;
+
+  let names = [];
+  for (const child of copy) {
+    const { name, age } = child;
+    if (age === aux) {
+      names.push(name);
+    }
+  }
 });
