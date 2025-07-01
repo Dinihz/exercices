@@ -50,6 +50,18 @@ btFilter.addEventListener("click", () => {
     const { name, age } = child;
     if (age === aux) {
       names.push(name);
+    } else {
+      resum += aux + " years: " + names.length + " children - ";
+      resum += ((names.length / copy.length) * 100).toFixed(2) + "%\n";
+      resum += "(" + names.join(", ") + ")\n\n";
+      aux = age;
+      names = [];
+      names.push(name);
     }
   }
+
+  resum += aux + " ages: " + names.length + " child: - ";
+  resum += ((names.length / copy.length) * 100).toFixed(2) + "%\n";
+  resum += "(" + names.join(", ") + ")\n\n";
+  answer.innerText = resum;
 });
