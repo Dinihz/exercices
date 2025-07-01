@@ -7,12 +7,17 @@ const btFilter = document.querySelector("#btFilter");
 
 const children = [];
 
+// add child
 frm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const name = inputName.value;
+
+  const name = inputName.value.trim();
   const age = Number(inputAge.value);
 
+  if (!name || isNaN(age)) return;
+
   children.push({ name, age });
+
   inputName.value = "";
   inputAge.value = "";
   inputName.focus();
@@ -20,48 +25,48 @@ frm.addEventListener("submit", (e) => {
   btList.dispatchEvent(new Event("click"));
 });
 
+// list all childs
 btList.addEventListener("click", () => {
   if (children.length === 0) {
-    alert("Dont have children listed");
+    alert("There are no children listed");
     return;
   }
+  const list = children
+    .map((child) => `${child.name} - ${child.age} years`)
+    .join("\n");
 
-  let list = "";
-  for (const child of children) {
-    const { name, age } = child;
-    list += name + " - " + age + " old\n";
-  }
   answer.innerText = list;
 });
 
+// Groups by age with percentage
 btFilter.addEventListener("click", () => {
   if (children.length === 0) {
-    alert("Dont have children listed");
+    alert("There are no children listed");
     return;
   }
 
-  const copy = [...children];
-  copy.sort((a, b) => a.age - b.age);
-  let resum = 0;
-  let aux = copy[0].age;
-
+  const sorted = [...children].sort((a, b) => a.age - b.age);
+  let currentAge = sorted[0].age;
   let names = [];
-  for (const child of copy) {
-    const { name, age } = child;
-    if (age === aux) {
-      names.push(name);
+  let result = "";
+
+  for (const child of sorted) {
+    if (child.age === currentAge) {
+      names.push(child.name);
     } else {
-      resum += aux + " years: " + names.length + " children - ";
-      resum += ((names.length / copy.length) * 100).toFixed(2) + "%\n";
-      resum += "(" + names.join(", ") + ")\n\n";
-      aux = age;
-      names = [];
-      names.push(name);
+      result += formatGroup(currentAge, names, sorted.length);
+      currentAge = child.age;
+      names = [child.name];
     }
   }
 
-  resum += aux + " ages: " + names.length + " child: - ";
-  resum += ((names.length / copy.length) * 100).toFixed(2) + "%\n";
-  resum += "(" + names.join(", ") + ")\n\n";
-  answer.innerText = resum;
+  result += formatGroup(currentAge, names, sorted.length);
+  answer.innerText = result;
+
+  function formatGroup(age, names, total) {
+    const count = names.length;
+    const percent = ((count / total) * 100).toFixed(2);
+
+    return `${age} years: ${count} children - ${percent}%\n(${names.join(", ")})\n\n`;
+  }
 });
