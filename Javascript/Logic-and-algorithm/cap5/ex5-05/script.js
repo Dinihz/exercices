@@ -5,7 +5,7 @@ const students = [];
 
 do {
   const name = prompt("Name: ");
-  if ((name = "And")) {
+  if (name === "And") {
     break;
   }
   const test = Number(prompt("Test Value: "));
@@ -13,14 +13,16 @@ do {
   console.log("Ok! Students registered");
 } while (true);
 console.log("-".repeat(40));
-const larger = students.reduce((a, b), Math.max(a, b.test), 0);
-console.log(`Larget test: ${larger}`);
+const larger = students.reduce((max, student) => {
+  return student.test > max ? student.test : max;
+}, 0);
+console.log(`Highest test score: ${larger}`);
 
-if (maior >= 7) {
-  const highlights = students.filter((students) => students.test == larger);
+if (larger >= 7) {
+  const highlights = students.filter((student) => student.test === larger);
   for (const highlight of highlights) {
     console.log(`- ${highlight.name}`);
   }
 } else {
-  console.log("Dont have highlist students in the class");
+  console.log("There are no highlight students in the class");
 }
