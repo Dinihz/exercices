@@ -1,6 +1,6 @@
 const prompt = require("prompt-sync")();
 
-console.log("Inform customers as they arrive. Type 'and' to finsh.");
+console.log("Inform customers as they arrive. Type 'and' to finish.");
 const clients = [];
 
 do {
@@ -11,7 +11,7 @@ do {
 
   const age = Number(prompt("Age: "));
   clients.push({ name, age });
-  console.log("Ok, clients added in queue");
+  console.log("Ok, client added to the queue");
 } while (true);
 console.log("\nPreferencial Queue");
 
