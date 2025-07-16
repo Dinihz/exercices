@@ -20,3 +20,11 @@ function collectWithdrawals() {
 
   return withdrawals;
 }
+
+function showValidWithdrawals(valid) {
+  console.log("\nValid Withdrawals");
+  console.log("-".repeat(40));
+  valid.forEach((value) => {
+    console.log(`R$ ${value.toFixed(2)}`);
+  });
+}
