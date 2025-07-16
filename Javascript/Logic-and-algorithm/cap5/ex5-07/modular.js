@@ -28,3 +28,17 @@ function showValidWithdrawals(valid) {
     console.log(`R$ ${value.toFixed(2)}`);
   });
 }
+
+function showSummary(valid, totalAttempts) {
+  const totalWithdrawn = valid.reduce((sum, value) => sum + value, 0);
+  const invalidCount = totalAttempts - valid.length;
+
+  console.log("-".repeat(40));
+  console.log(`Total of Valid Withdrawals: R$ ${totalWithdrawn.toFixed(2)}`);
+  console.log(`Invalid Withdrawal Attemps: ${invalidCount}`);
+}
+const allWithdrawals = collectWithdrawals();
+const validWithdrawals = allWithdrawals.filter((value) => value % 10 === 0);
+
+showValidWithdrawals(validWithdrawals);
+showSummary(validWithdrawals, allWithdrawals.length);
