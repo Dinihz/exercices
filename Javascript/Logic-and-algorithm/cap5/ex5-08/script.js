@@ -9,9 +9,28 @@ const teams = [];
 btAdd.addEventListener("click", () => {
   const team = inTeam.value.trim();
   if (team === "") return;
-
   teams.push(team);
   result.textContent += `\nTeam "${team}" added!`;
   inTeam.value = "";
   inTeam.focus();
+});
+
+btList.addEventListener("click", () => {
+  if (teams === "") {
+    result.textContent = "Please add teams";
+    inTeam.focus();
+    return;
+  }
+
+  teams.forEach((team, i) => {
+    result.value = "";
+    result.textContent += `\nRegistered Teams: ${i + 1} - ${team}`;
+  });
+
+  btSchedule.addEventListener("click", () => {
+    if (teams.length % 2 !== 0) {
+      result.textContent = `\nNumber of teams: ${teams.length}, invalid number. Must be even`;
+      return;
+    }
+  });
 });
