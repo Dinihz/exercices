@@ -8,7 +8,7 @@ const teams = [];
 
 btAdd.addEventListener("click", () => {
   const team = inTeam.value.trim();
-  if (team === "") return;
+  if (team.length === "") return;
   teams.push(team);
   result.textContent += `\nTeam "${team}" added!`;
   inTeam.value = "";
@@ -22,15 +22,18 @@ btList.addEventListener("click", () => {
     return;
   }
 
+  result.textContent = "";
   teams.forEach((team, i) => {
-    result.value = "";
     result.textContent += `\nRegistered Teams: ${i + 1} - ${team}`;
   });
+});
 
-  btSchedule.addEventListener("click", () => {
-    if (teams.length % 2 !== 0) {
-      result.textContent = `\nNumber of teams: ${teams.length}, invalid number. Must be even`;
-      return;
-    }
-  });
+btSchedule.addEventListener("click", () => {
+  if (teams.length % 2 !== 0) {
+    result.textContent = `\nNumber of teams: ${teams.length}, invalid number. Must be even`;
+    return;
+  }
+
+  for (let team in teams) {
+  }
 });
