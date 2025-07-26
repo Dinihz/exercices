@@ -34,6 +34,9 @@ btSchedule.addEventListener("click", () => {
     return;
   }
 
-  for (let team in teams) {
+  result.textContent = "";
+  for (let i = 0; i < teams.length / 2; i++) {
+    result.textContent += `\n${teams[i]} x ${teams[teams.length - 1 - i]}`;
+    console.log(i);
   }
 });
