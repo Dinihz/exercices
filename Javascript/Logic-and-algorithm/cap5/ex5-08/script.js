@@ -8,7 +8,7 @@ const teams = [];
 
 btAdd.addEventListener("click", () => {
   const team = inTeam.value.trim();
-  if (team.length === "") return;
+  if (team.length === 0) return;
   teams.push(team);
   result.textContent += `\nTeam "${team}" added!`;
   inTeam.value = "";
@@ -16,7 +16,7 @@ btAdd.addEventListener("click", () => {
 });
 
 btList.addEventListener("click", () => {
-  if (teams === "") {
+  if (teams.length === 0) {
     result.textContent = "Please add teams";
     inTeam.focus();
     return;
@@ -37,6 +37,5 @@ btSchedule.addEventListener("click", () => {
   result.textContent = "";
   for (let i = 0; i < teams.length / 2; i++) {
     result.textContent += `\n${teams[i]} x ${teams[teams.length - 1 - i]}`;
-    console.log(i);
   }
 });
