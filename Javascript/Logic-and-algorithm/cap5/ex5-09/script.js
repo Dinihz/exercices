@@ -1,4 +1,4 @@
-//Elaborar um programa que adicione numeros a um vetor (OK). O programa deve impedir a inclusao de numeros repetidos. Exibir uma lista de numeros a cada inclusao. Ao clicar no botao Veficar ordem, o programa deve analisar o conteudo do vetor e informar se os numeros estao ou nao em ordem crescente.
+//Elaborar um programa que adicione numeros a um vetor (OK). O programa deve impedir a inclusao de numeros repetidos (OK). Exibir uma lista de numeros a cada inclusao. Ao clicar no botao Veficar ordem, o programa deve analisar o conteudo do vetor e informar se os numeros estao ou nao em ordem crescente.
 const inNumber = document.querySelector("#inNumber");
 const btAdd = document.querySelector("#btAdd");
 const btList = document.querySelector("#btList");
@@ -13,9 +13,14 @@ btAdd.addEventListener("click", () => {
   if (isNaN(number)) {
     alert(`Please enter a valid number.`);
   }
+
+  if (nums.includes(number) === true) {
+    alert(`This number has alredy been added.`);
+    inNumber.value = "";
+    return;
+  }
+
   nums.push(number);
   inNumber.value = "";
   inNumber.focus();
 });
-
-console.log(nums);
