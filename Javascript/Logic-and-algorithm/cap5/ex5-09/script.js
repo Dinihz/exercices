@@ -26,3 +26,9 @@ btAdd.addEventListener("click", () => {
 
   preNumbers.textContent = `Numbers: ${nums.join(", ")}`;
 });
+
+btList.addEventListener("click", () => {
+  const test = nums.every((num, i) => {});
+
+  console.log(test);
+});
