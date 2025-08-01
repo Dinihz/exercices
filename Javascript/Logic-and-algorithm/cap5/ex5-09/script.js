@@ -4,7 +4,7 @@ const btAdd = document.querySelector("#btAdd");
 const btList = document.querySelector("#btList");
 
 const preNumbers = document.querySelector("#preNumbers");
-const preResult = document.querySelector("preResult");
+const preResult = document.querySelector("#preResult");
 
 const nums = [];
 
@@ -28,7 +28,12 @@ btAdd.addEventListener("click", () => {
 });
 
 btList.addEventListener("click", () => {
-  const test = nums.every((num, i) => {});
+  const test = nums.every((num, i) => {
+    if (i === nums.length - 1) return true;
+    return num <= nums[i + 1];
+  });
 
-  console.log(test);
+  preResult.textContent = test
+    ? "The numbers are in ascending order."
+    : "The numbers are not in ascending order.";
 });
