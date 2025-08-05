@@ -12,14 +12,16 @@ const preList = document.querySelector("#preList");
 const candidates = [];
 
 btAdd.addEventListener("click", () => {
-  const candidate = inCandidate.value;
+  const candidate = inCandidate.value.trim();
   const hits = Number(inHits.value.trim());
 
-  if (isNaN(hits)) {
-    alert(`Please enter a valid number`);
+  if (candidate === "" || isNaN(hits)) {
+    alert(`Please enter a valid name and number.`);
+    return;
   }
 
   candidates.push({ name: candidate, hits: hits });
+
   inCandidate.value = "";
   inHits.value = "";
   inCandidate.focus();
@@ -27,6 +29,4 @@ btAdd.addEventListener("click", () => {
   preList.textContent = candidates
     .map((c, index) => `${index + 1}. ${c.name} - ${c.hits} hits`)
     .join("\n");
-
-  console.log(candidates);
 });
