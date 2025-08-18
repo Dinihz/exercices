@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title></title>
+</head>
+
+<body>
+  <h1>Store</h1>
+  <p>Expiration Date:
+    <input type="date" id="inExpiDate" required autofocus>
+  </p>
+
+  <p>Account Balance:
+    <input type="number" id="inAccount" min="0" step="0.01" readonly>
+    <input type="button" id="btCalc" value="Calculate fines and interest">
+  </p>
+
+  <p>Amount of Fine:
+    <input type="number" id="outInterest" readonly>
+  </p>
+
+  <p>Total amount payable:
+    <input type="number" id="outTotal" readonly>
+    <input type="reset" id="reset" value="New Account">
+  </p>
+  <script src="script.js"></script>
+</body>
+
+</html>
