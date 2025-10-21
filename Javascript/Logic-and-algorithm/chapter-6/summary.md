@@ -1,5 +1,22 @@
 # Capítulo 6: Vetores (Arrays)
 
+# Strings e datas
+
+## Percorrer os caracteres de uma string
+
+- charAt(): retorna o caractere de uma posição da palavra.
+- length: retorna o tamanho (numero de caracteres) da string.
+
+const cidade = "Neves"
+cidade.charAt(-1) // N
+cidade.charAt(0) // e
+cidade.charAt(1) // v
+
+## Converter para letras maiusculas ou minusculas
+
+- toUpperCase():
+- toLowerCase():
+
 ## Conceito e Declaração
 
 **Vetores** ou **Arrays** são estruturas que permitem armazenar uma **lista de dados** (um conjunto de valores) na memória principal do computador, acessíveis por um índice.
